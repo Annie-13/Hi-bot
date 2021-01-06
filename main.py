@@ -38,37 +38,21 @@ async def on_message(message):
         return
 
     if message.content.startswith('#help'):
-        await message.channel.send ('```** Hi there ! Its me Hi Bot. M Designed by a Stupid novice coder named Annie (Ananya xD) who hasn\'t even passed her 10th ..Howtf :/ \n Kek All I can do is nothing but this Auto Response T_T \n Type \n #help \n \n For Fun) **```')
+        await message.channel.send ('```** Hi there ! Its me Hi Bot. M Designed by a Stupid novice coder named Annie (Ananya xD) who hasn\'t even passed her 10th ..Howtf :/ \n Kek All I can do is nothing but this Auto Response T_T \n Type \n\n #help \n \n For Fun) **```')
 
-client = discord.Client()
 
-swear_words = ["stuff"]
+swear_words = ["stuff","lel"]
+warns = ["you are warned lel", "warned"]
 
-warns = [
-"you are warned lel"
-]
 
 if "responding" not in db.keys():
   db["responding"] = True
 
-def warn_update(warns):
-  if "warns" in db.keys():
-    warns = db["warns"]
-    warns.append(warn)
-    db["warns"] = warns
-  else:
-    db["warns"] = [warns]
-
-def delete_encouragment(index):
-  warns = db["warns"]
-  if len(warns) > index:
-    del warns[index]
-  db["warns"] = warns
-
 @client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
+
+#async def on_message(message):
+  #if message.author == client.user:
+    #return
 
   msg = message.content
 
