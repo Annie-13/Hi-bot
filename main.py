@@ -5,20 +5,8 @@ import json
 import random
 from replit import db
 
-class color:
-   PURPLE = '\033[95m'
-   CYAN = '\033[96m'
-   DARKCYAN = '\033[36m'
-   BLUE = '\033[94m'
-   GREEN = '\033[92m'
-   YELLOW = '\033[93m'
-   RED = '\033[91m'
-   BOLD = '\033[1m'
-   UNDERLINE = '\033[4m'
-   END = '\033[0m'
-
 client = discord.Client()
-
+"""
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -37,21 +25,16 @@ async def on_message(message):
         return
 
     if message.content.startswith('#help'):
-        await message.channel.send ("```** Hi there ! Its me Hi Bot. M Designed by a Stupid novice coder named Annie (Ananya xD) who hasn\'t even passed her 10th ..Howtf :/ \n Kek All I can do is nothing but this Auto Response T_T \n Type \n\n #help \n \n For Fun) **```")
-
-
-
-
+        await message.channel.send ('```** Hi there ! Its me Hi Bot. M Designed by a Stupid novice coder named Annie (Ananya xD) who hasn\'t even passed her 10th ..Howtf :/ \n Kek All I can do is nothing but this Auto Response T_T \n Type \n #help \n \n For Fun) **```')
+"""
 
 swear_words = ["stuff","lel"]
 warns = ["you are warned lel", "warned"]
-
 
 if "responding" not in db.keys():
   db["responding"] = True
 
 @client.event
-
 async def on_message(message):
   if message.author == client.user:
     return
@@ -64,7 +47,15 @@ async def on_message(message):
     if any(word in msg for word in swear_words):
       await message.channel.send(random.choice(options))
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+msg1 = message.content
+a="amart"
 
+if any(word in message for word in a):
+  await message.channel.send('who said amart')
 
 
 
